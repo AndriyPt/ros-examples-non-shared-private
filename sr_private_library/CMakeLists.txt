@@ -8,16 +8,8 @@ find_package(catkin REQUIRED roscpp sr_public_library)
 ###################################
 catkin_package(
   INCLUDE_DIRS include
-#  LIBRARIES sr_private_library
   CATKIN_DEPENDS sr_public_library
-#  DEPENDS system_lib
 )
-
-### DEBUG -- REMOVE it
-get_cmake_property(_variableNames VARIABLES)
-foreach (_variableName ${_variableNames})
-    message(STATUS "${_variableName}=${${_variableName}}")
-endforeach()
 
 ###########
 ## Build ##
@@ -49,10 +41,7 @@ add_custom_command(TARGET sr_private_library POST_BUILD
 ## Install ##
 #############
 
-## Mark executables and/or libraries for installation
-# install(TARGETS sr_private_library sr_private_library_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+install(TARGETS sr_private_library
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+)
 
